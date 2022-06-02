@@ -1,8 +1,12 @@
 require("dotenv").config();
 const express = require("express");
+
+//Ask Aram how did below two lineas appeared
 const req = require("express/lib/request");
 const res = require("express/lib/response");
 const app = express();
+
+app.use("/places", require("/controllers/places"));
 
 app.get("/", (req, res) => {
   res.send("hello world");
