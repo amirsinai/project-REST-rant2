@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const req = require("express/lib/request");
 const res = require("express/lib/response");
@@ -7,4 +8,12 @@ app.get("/", (req, res) => {
   res.send("hello world");
 });
 
-app.listen(3000);
+app.get(
+  "*",
+  (req,
+  (res) => {
+    res.status(404).send("<h1>404 Error Page</h1>");
+  })
+);
+
+app.listen(process.env.PORT);
